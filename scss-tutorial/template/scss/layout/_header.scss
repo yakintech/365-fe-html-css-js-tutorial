@@ -1,0 +1,38 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    a{
+        text-decoration: none;
+        text-transform: uppercase;
+        color:$white
+    }
+}
+
+ul{
+    display: flex;
+    li{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        margin-left: 10px;
+    }
+}
+
+
+#logo{
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+
+header{
+    height: 530px;
+    background-size: cover;
+    background-image: url('./images/home-bg.jpg');
+}
