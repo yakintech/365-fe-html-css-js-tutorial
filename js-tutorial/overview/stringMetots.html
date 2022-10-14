@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+
 </body>
 <script>
 
@@ -19,13 +21,25 @@
     //name değişkenindeği string değeri ekrana KÜÇÜK harfle yaz
     console.log('LOWER', name.toLowerCase());
 
-    
+
     //name değerinde kaç karakter var
     console.log('Length: ', name.length);
 
 
+    //Buradaki 0 startIndex i temsil eder. İkinci parametre olarak verdiğim 2 değeri ise kaç adet değeri alacağını bana söyler.
+    console.log('Slice: ', name.slice(0, 2));
 
-    
+    let phoneNumber = '+905437331470';
+    console.log('Slice phone number: ', phoneNumber.slice(3));
+
+    console.log('REPLACE ', phoneNumber.replace('+','00'));
+
+
+
+
+
+
 
 </script>
+
 </html>
