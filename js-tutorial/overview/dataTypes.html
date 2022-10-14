@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    // TYPE SAFE OLMAMASI
+    //String
+    var name = "Çağatay";
+
+    //number (decimal, float...)
+    var age = 18;
+
+    //boolean
+    var onlineStatus = true;
+
+    var user = null;
+
+    const country = 'Türkiye';
+    let email = 'cagatay@mail.com'
+
+    let countries = ['Türkiye', 'Rusya', 'Fransa', 'İran'];
+
+    //let, var ve const
+
+
+    for (var i = 0; i < 10; i++) {
+
+    }
+
+    console.log('i:', i);
+
+    //JS OBJECT
+    var adminUser = {
+        email: 'cagatay@mail.com',
+        city: 'İzmir',
+    }
+
+
+    // JS OBJECT
+    let product = {
+        name: 'IPhone',
+        price: 4000,
+        points: [3, 5, 2, 1, 7],
+        category: {
+            name: 'Phone',
+            description: 'Phone products...'
+        }
+    }
+
+    console.log('Category name: ', product.category.name);
+
+    //undefined
+    console.log(product.supplier)
+
+    //undefined error
+    console.log(product.supplier.companyName)
+    
+
+</script>
+
+</html>

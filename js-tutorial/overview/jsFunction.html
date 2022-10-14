@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // f(x) = 2x + 1
+    // f(x,y) = 3x + y + 10
+
+
+    function hello() {
+
+        console.log("Hello");
+        console.log("Hello Javascript!!");
+
+    }
+
+    function calc(x, y) {
+
+        let z = (x * y) + (x * y);
+
+        return z;
+    }
+
+    let sonuc = calc(7, 15);
+    // console.log('Sonuç ', sonuc);
+
+
+    const merhaba = function () {
+
+        console.log('Merhaba Javscript');
+
+    }
+
+
+    const kdvHesap = function (fiyat) {
+        return fiyat * 1.18;
+    }
+
+
+    function kdvHesap2(fiyat) {
+        return fiyat * 1.18;
+    }
+
+
+    var sonuc2 = kdvHesap(300);
+    // console.log('KDV: ', sonuc);
+
+
+    // console.log('KDV: ', kdvHesap(300));
+
+
+
+
+    function kdvHesap3(fiyat, kdvOran = 1.18) {
+
+        let sonuc = fiyat * kdvOran;
+        return sonuc;
+    }
+
+
+    console.log("Sonuç: ", kdvHesap3(100));
+    console.log("Sonuç-2: ", kdvHesap3(100, 1.08));
+
+
+
+</script>
+
+</html>
