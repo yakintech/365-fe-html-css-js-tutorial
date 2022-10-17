@@ -1,0 +1,8 @@
+JS Data Types
+https://www.youtube.com/watch?v=808eYu9B9Yw
+
+Javascript Strings
+https://www.youtube.com/watch?v=09BwruU4kiY
+https://www.w3schools.com/js/js_string_methods.asp
+
+
