@@ -32,10 +32,58 @@
     let phoneNumber = '+905437331470';
     console.log('Slice phone number: ', phoneNumber.slice(3));
 
-    console.log('REPLACE ', phoneNumber.replace('+','00'));
+    console.log('REPLACE ', phoneNumber.replace('+', '00'));
 
-    console.log('REPLACE ALL ', phoneNumber.replaceAll('0','*'));
+    console.log('REPLACE ALL ', phoneNumber.replaceAll('0', '*'));
 
+
+    let email = "  cagatay@mail.com"
+    console.log('TRIM', email.trim());
+
+    let content = "Değerli Çağatay Yıldız, Başvurunuz ne yazıki olumsuz sonuçlanmıştır..."
+
+    let content2 = "Değerli Aykur Arslan, Başvurunuz ne yazıki olumsuz sonuçlanmıştır..."
+
+
+    //Start Index -> 7
+    //Last Index -> ???? (last index ilk virgülden bir önceki)
+
+    let lastIndex = content.indexOf(',');
+    let lastIndex2 = content2.indexOf(',');
+
+
+    let result = content.substring(7, lastIndex);
+    let result2 = content2.substring(7, lastIndex2)
+
+    console.log('Substring Result: ', result);
+    console.log('Substring Result2: ', result2);
+
+
+    let content3 = "Değerli Ece Ay, Başvurunuz ne yazıki olumsuz sonuçlanmıştır..."
+    let result3 = findUserName(content3);
+
+    console.log('Substring Result3', result3);
+
+    //bu fonksiyon dışarıdan bir metin alır ve o metin içerisindeki ad-soyadı bulur. Yukarıdaki formata göre.
+    function findUserName(data) {
+
+        //Öncelikle virgül karakterinin index numarasını buluyorum.
+        let lastNo = data.indexOf(',');
+
+        //Daha sonra ismi bulmak için substring metodunu kullanıyorum.
+        let result = data.substring(7, lastNo);
+
+        return result;
+
+    }
+
+
+    let content4 = "İzmir, İstanbul, Ankara, Trabzon, Antalya, Ağrı, Edirne";
+
+    //split fonksiyonu ile virgüllü bu metni bir diziye çevireceğim.
+    let cities = content4.split(',');
+
+    console.log('Cities: ', cities);
 
 
 
