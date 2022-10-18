@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <p id="title"></p>
+        <button onclick="clickMe()">Click Me!</button>
+    </div>
+
+    <div>
+        <p id="main">0</p>
+        <button onclick="fillSpan()">Fill Span</button>
+    </div>
+
+
+</body>
+<script>
+
+    function fillSpan(){
+        document.getElementById('main').innerHTML = "Kampüs 365";
+    }
+
+
+
+    document.getElementById('title').innerHTML = "Barbaros hoca!";
+    function clickMe() {
+        alert('Hello button!!!')
+    }
+
+</script>
+
+</html>

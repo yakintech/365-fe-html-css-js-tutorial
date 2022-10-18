@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            border-style: solid;
+            border-width: 10px;
+            left: 50px;
+            top: 10px;
+            position: fixed;
+        }
+
+        button {
+            position: fixed;
+            bottom: 100px;
+            width: 100px;
+            left: 50px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box">
+
+    </div>
+    <button onclick="go()">Go</button>
+
+</body>
+<script>
+
+    let left = 50;
+    let boxElement = document.getElementById('box')
+
+    function go() {
+
+        left = left + 100;
+        if (left >= 400 && left < 600){
+
+            boxElement.style.backgroundColor = 'pink'
+
+        }
+        if(left >= 600 && left < 800){
+
+            boxElement.style.backgroundColor = 'green'
+
+        }
+        if(left >= 800){
+
+            boxElement.style.backgroundColor = 'tomato'
+
+        }
+
+        if(left < 1000){
+            boxElement.style.left = left + "px";
+        }
+    }
+
+</script>
+
+</html>
