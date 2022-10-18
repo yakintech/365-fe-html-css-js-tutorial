@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    //Aşağıdaki fonksiyon dışarıdan bir adet ücret alacaktır. Aldığı ücret 100 TL den büyükse KDV yi %8 den hesaplayacak değilse %18 den hesaplayacak ve KDVli miktarını console a yazacak.
+
+    function KDVCalc(price) {
+
+        let totalPrice = 0;
+
+        if (price > 100) {
+            totalPrice = price * 1.08;
+        }
+        else {
+            totalPrice = price * 1.18;
+        }
+        console.log('Total price: ', totalPrice);
+
+    }
+
+    //Dışarıdan öğrenci notu alsın. Eğer dışarıdan verilen not 50 den düşükse kaldı, yüksekse geçti desin. Dışarıdan girilen not 0 dan küçük 100 den büyük olamaz
+    function noteCalc(note){
+
+        if(note > 0 && note < 100){
+
+            if(note <= 50){
+                alert("Kaldınız...")
+            }
+            else{
+                alert("Geçtiniz...")
+            }
+        }
+        else{
+            alert("Lütfen düzgün not gir...");
+        }
+
+    }
+
+
+
+</script>
+
+</html>
