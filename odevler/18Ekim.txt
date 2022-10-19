@@ -1,0 +1,7 @@
+1) Ekrana bir buton bir img koy. Img e herhangi bir resim ver. Butona tıkladığında img boyutu 200*200 olsun 
+
+2) Ekrana bir adet buton 3 tane içi boş span koy. Butona tıkladığında 3 spanın da içine "Hello JS" yazsın 
+
+3) Ekrana bir adet buton koy. Konula bu butonu her tıkladığında buton 20 px sağa kaysın.
+
+4) Ekrana 3 buton koy. Hangi butona tıklanırsa DİĞER butonlar 20 px sağa kaysın.

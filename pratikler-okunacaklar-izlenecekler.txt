@@ -6,3 +6,8 @@ https://www.youtube.com/watch?v=09BwruU4kiY
 https://www.w3schools.com/js/js_string_methods.asp
 
 
+JS DOM
+https://www.youtube.com/watch?v=y17RuWkWdn8   ( kısa video )
+https://www.youtube.com/watch?v=5fb2aPlgoys   ( uzun video )
+
+
