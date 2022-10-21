@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label>Name:</label>
+        <input type="text" id="name">
+    </div>
+    <div>
+        <button onclick="add()">Add</button>
+    </div>
+    <ul id="metalBands">
+
+    </ul>
+    
+</body>
+<script>
+    //Her butona bastığımda inputtaki değeri alıp ul ye ekleyecek
+    function add(){
+
+        let bandName = document.getElementById('name').value;
+
+        let liElement = document.createElement('li');
+        liElement.innerHTML = bandName;
+
+        document.getElementById('metalBands').appendChild(liElement);
+
+        clearInputs();
+    }
+
+    function clearInputs(){
+        document.getElementById('name').value = "";
+    }
+</script>
+</html>
