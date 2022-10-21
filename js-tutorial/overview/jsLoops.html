@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    let cities = ['İstanbul', 'İzmir', 'Ankara', 'Trabzon', 'Diyarbakır'];
+
+    //Dizinin elemanlarını tek tek console a yazdır.
+    //i değişkeni 0. Her döngü döndüğünde i değişkeni 1 artacak
+    //Döngü i 5 e eşit olana kadar çalışacak.
+
+    for(let i = 0; i < cities.length; i++){
+       // console.log(cities[i]);
+    }
+
+    //foreach fonksiyonu bana her bir elemanı tek tek verir. Bu elemanları bana vermek için bir fonksiyon ister
+    cities.forEach(function(item){
+       // console.log('Item ', item);
+    })
+
+    cities.forEach(getCity);
+
+    function getCity(element){
+       // console.log("****", element);
+    }
+
+
+
+    let countries = ['Türkiye', 'Rusya', 'Almanya', 'Yunanistan', 'İran'];
+
+    countries.map(function(element){
+        console.log('Element', element);
+    })
+    
+
+
+</script>
+</html>

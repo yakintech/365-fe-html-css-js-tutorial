@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+    <button onclick="addRandom()">Add Random</button>
+</body>
+<script>
+
+    function addRandom() {
+        //Butona bastığında genişliği ve yükseliği RANDOM olan bir div i eklesin.
+        let randomWidth = Math.floor(Math.random() * 1000);
+        let randomHeight = Math.floor(Math.random() * 1000);
+
+        let randomDiv = document.createElement('div');
+        randomDiv.style.backgroundColor = 'tomato';
+        randomDiv.style.width = randomWidth + "px";
+        randomDiv.style.height = randomHeight  + "px";
+        randomDiv.style.borderStyle = 'solid'
+
+
+        document.getElementById('container').appendChild(randomDiv);
+    }
+</script>
+
+</html>

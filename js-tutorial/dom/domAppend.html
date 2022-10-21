@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+    <button onclick="addSpan()">Add Span</button>
+</body>
+<script>
+
+    function addSpan(){
+        //Öncelikle bir span elementi oluşturuyorum.
+        let spanElement = document.createElement('span');
+        //Oluşturduğum bu elementin içerisine "Çağatay" yazdım
+        spanElement.innerHTML = "Çağatay";
+
+
+        //Bu elementi box id sine sahip div in İÇERİSİNE (CHILD) ekledim.
+        document.getElementById('box').appendChild(spanElement);
+
+    }
+
+</script>
+
+</html>
