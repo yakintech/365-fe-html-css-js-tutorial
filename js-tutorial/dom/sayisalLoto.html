@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container span{
+            font-size: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+    <button onclick="start()">Start</button>
+</body>
+<script>
+    // Butona her bastığunda 1 ile 49 arasında 7 tane RANDOM sayı belirle ve bu sayları ekranda göster;
+
+
+    let randomNumbers = [];
+    function start() {
+
+        randomNumbers = [];
+        document.getElementById('container').innerHTML = "";
+        //Aynı sayı gelebilir. Bunu nasıl engelleyebiliriz?
+        for (let i = 0; i < 7; i++) {
+            //Bu kod bloğu 1 ile 49 arasında rastgele bir sayı verir.
+            let randomNumber = Math.floor(Math.random() * 49);
+
+            randomNumbers.push(randomNumber);
+        }
+
+
+        randomNumbers.map(function(element){
+
+            let spanElement = document.createElement('span');
+            spanElement.innerHTML = element;
+            spanElement.style.marginLeft = "20px"
+
+            document.getElementById('container').appendChild(spanElement);
+
+        })
+
+    }
+
+</script>
+
+</html>

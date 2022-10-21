@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <label>Price:</label>
+        <input type="text" id="price">
+    </div>
+    <div>
+        <button onclick="calcTax()">Calc Tax</button>
+    </div>
+
+</body>
+<script>
+    //Ekrana bir input ve bir buton koy.  Butona tıkladığında inputtaki değerin % 18 ini alıp alert olarak ekrana yazsın.
+    //Kurallar:
+    // Kullanıcı boş değer giremez
+    // Kullanıcı sayısal değer girmek zorunda
+    //NAN = Not a Number
+
+    function calcTax() {
+
+        let data = document.getElementById('price').value;
+
+        if (data == "") {
+            alert('Lütfen bir değer giriniz');
+        }
+        else {
+            if (isNaN(data)) {
+                alert("Sayısal değer gir kardeşim!!")
+            }
+            else {
+                alert(data * 0.18);
+            }
+        }
+
+    }
+</script>
+
+</html>
