@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <label>Id:</label>
+        <input type="text" id="categoryId" />
+    </div>
+    <div>
+        <button onclick="deleteCategory()">Delete</button>
+    </div>
+</body>
+<script>
+    function deleteCategory() {
+
+        let categoryId = document.getElementById('categoryId').value;
+
+        if (isNaN(categoryId) || categoryId == '') {
+            alert('Lütfen düzgün bir categoryId gir!');
+            return;
+        }
+        else {
+            axios.delete('https://northwind.vercel.app/api/categories/' + categoryId)
+                .then(function () {
+                    alert('Successful!')
+                })
+                .catch(function (err) {
+                    console.log('Error', err);
+                    alert('Category silme işlemi sırasında bir hata meydana geldi!')
+                })
+        }
+
+
+    }
+</script>
+
+</html>
