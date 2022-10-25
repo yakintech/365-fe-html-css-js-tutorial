@@ -4,5 +4,10 @@ https://www.w3schools.com/js/js_conventions.asp
 Js Template Literal
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
 
+Arrow Function
+https://www.w3schools.com/js/js_arrow_function.asp
+https://www.digitalocean.com/community/tutorials/understanding-arrow-functions-in-javascript
 
+Chrome Ext
+Json Viewer Pro
 

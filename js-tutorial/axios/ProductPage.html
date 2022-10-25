@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        table {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <div>
+            <label>Name:</label>
+            <input type="text" id="name" />
+        </div>
+        <div>
+            <label>Unit Price:</label>
+            <input type="text" id="unitPrice" />
+        </div>
+        <div>
+            <label>Stock:</label>
+            <input type="text" id="stock" />
+        </div>
+        <div>
+            <button onclick="add()">Add</button>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th style="cursor: pointer" onclick="sortByUnitPrice()">Price</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+        <tbody id="products">
+
+
+        </tbody>
+    </table>
+
+</body>
+<script>
+    const tbody = document.getElementById('products');
+    const nameInput = document.getElementById('name');
+    const stockInput = document.getElementById('unitPrice')
+    const priceInput = document.getElementById('stock');
+
+    let isSortByPrice = false;
+
+    const API_URL = 'https://northwind.vercel.app/api/products';
+
+    function add() {
+
+        if (nameInput.value != '' && priceInput.value != '' && stockInput.value != '') {
+
+            let newProduct = {
+                name: nameInput.value,
+                unitPrice: priceInput.value,
+                unitsInStock: stockInput.value
+            }
+
+            axios.post(API_URL, newProduct)
+                .then(res => {
+                    getProducts();
+
+                    //Data eklendikten sonra inputları boşaltıyorum!
+                    nameInput.value = "";
+                    stockInput.value = "";
+                    priceInput.value = "";
+                })
+                .catch(err => {
+                    alert('İşlem sırasında bir hata meydana geldi!')
+                })
+
+        }
+        else {
+            alert('Lütfen tüm bilgileri giriniz!')
+        }
+
+
+    }
+
+
+
+    const formatter = new Intl.NumberFormat('tr-TR', {
+        style: 'currency',
+        currency: 'TRY',
+
+        // These options are needed to round to whole numbers if that's what you want.
+        //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+        //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+    });
+
+    getProducts();
+
+    let productsData = [];
+
+    function getProducts() {
+
+        axios.get(API_URL)
+            .then(response => {
+
+                productsData = response.data;
+                loadData(productsData);
+
+            })
+
+    }
+
+
+    function sortByUnitPrice() {
+
+        if (!isSortByPrice) {
+            productsData = productsData.sort((a, b) => a.unitPrice - b.unitPrice);
+            loadData(productsData);
+            isSortByPrice = true;
+        }
+        else{
+            productsData = productsData.sort((b, a) => a.unitPrice - b.unitPrice);
+            loadData(productsData);
+            isSortByPrice = false;
+        }
+
+
+    }
+
+
+    function loadData(tableData) {
+        tbody.innerHTML = "";
+
+        tableData.map(item => {
+
+            var trElement = document.createElement('tr');
+
+            var idTd = document.createElement('td');
+            idTd.innerHTML = item.id
+
+            var nameTd = document.createElement('td');
+            nameTd.innerHTML = item.name
+
+            var unitPriceTd = document.createElement('td');
+            unitPriceTd.innerHTML = formatter.format(item.unitPrice)
+            var stockTd = document.createElement('td');
+            stockTd.innerHTML = item.unitsInStock;
+
+            trElement.appendChild(idTd);
+            trElement.appendChild(nameTd);
+            trElement.appendChild(unitPriceTd);
+            trElement.appendChild(stockTd);
+
+
+            tbody.appendChild(trElement);
+
+        })
+
+    }
+
+</script>
+
+</html>
