@@ -57,12 +57,32 @@
             <button onclick="add()">Add</button>
         </div>
     </div>
+    <hr>
+    <div style="display: flex; margin-bottom:20px">
+        <div>
+            <label>Min Price: </label>
+            <input type="text" id="minPrice" />
+        </div>
+        <div>
+            <label>Max Price: </label>
+            <input type="text" id="maxPrice" />
+        </div>
+        <div>
+            <button onclick="filterByPrice()">Filter</button>
+        </div>
+    </div>
+    <hr>
+    <div style="margin-bottom: 20px">
+        <label>Name</label>
+        <input type="text" id="searchName" onkeyup="searchByName()" />
+    </div>
+    <hr>
 
     <table>
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
+                <th style="cursor: pointer" onclick="sortById()">Id</th>
+                <th style="cursor: pointer" onclick="sortByName()">Name</th>
                 <th style="cursor: pointer" onclick="sortByUnitPrice()">Price</th>
                 <th>Stock</th>
             </tr>
@@ -79,8 +99,13 @@
     const nameInput = document.getElementById('name');
     const stockInput = document.getElementById('unitPrice')
     const priceInput = document.getElementById('stock');
+    const minPriceInput = document.getElementById('minPrice');
+    const maxPriceInput = document.getElementById('maxPrice');
+    const searchNameInput = document.getElementById('searchName')
 
     let isSortByPrice = false;
+    let isSortByName = false;
+    let isSortById = false;
 
     const API_URL = 'https://northwind.vercel.app/api/products';
 
@@ -115,8 +140,6 @@
 
     }
 
-
-
     const formatter = new Intl.NumberFormat('tr-TR', {
         style: 'currency',
         currency: 'TRY',
@@ -126,8 +149,10 @@
         //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
     });
 
+    //Uygulama ilk açıldığında datayı web servisten çekip tabloya dolduruyorum.
     getProducts();
 
+    //Uygulama ilk çalıştığında aşağıdaki productsData isimli array dolacak ve bu array üzerinden search işlemlerini yapacağım.
     let productsData = [];
 
     function getProducts() {
@@ -142,23 +167,48 @@
 
     }
 
-
     function sortByUnitPrice() {
-
         if (!isSortByPrice) {
             productsData = productsData.sort((a, b) => a.unitPrice - b.unitPrice);
             loadData(productsData);
             isSortByPrice = true;
         }
-        else{
+        else {
             productsData = productsData.sort((b, a) => a.unitPrice - b.unitPrice);
             loadData(productsData);
             isSortByPrice = false;
         }
-
-
     }
 
+    function sortByName() {
+
+        if (!isSortByName) {
+            productsData = productsData.sort((a, b) => a.name.localeCompare(b.name))
+            loadData(productsData);
+            isSortByName = true;
+        }
+        else {
+
+            productsData = productsData.sort((b, a) => a.name.localeCompare(b.name))
+            loadData(productsData);
+            isSortByName = false;
+        }
+    }
+
+    function sortById(){
+
+        if (!isSortById) {
+            productsData = productsData.sort((a, b) => a.id - b.id);
+            loadData(productsData);
+            isSortById = true;
+        }
+        else {
+            productsData = productsData.sort((b, a) => a.id - b.id);
+            loadData(productsData);
+            isSortById = false;
+        }
+
+    }
 
     function loadData(tableData) {
         tbody.innerHTML = "";
@@ -174,9 +224,15 @@
             nameTd.innerHTML = item.name
 
             var unitPriceTd = document.createElement('td');
-            unitPriceTd.innerHTML = formatter.format(item.unitPrice)
+            unitPriceTd.innerHTML = formatter.format(item.unitPrice);
+
+
             var stockTd = document.createElement('td');
             stockTd.innerHTML = item.unitsInStock;
+
+            if(item.unitsInStock == 0){
+                trElement.style.backgroundColor = 'tomato'
+            }
 
             trElement.appendChild(idTd);
             trElement.appendChild(nameTd);
@@ -187,6 +243,40 @@
             tbody.appendChild(trElement);
 
         })
+
+    }
+
+    function filterByPrice() {
+
+        let minimumPrice = Number(minPriceInput.value); // 30
+        let maximumPrice = Number(maxPriceInput.value); // 150
+
+        if (!isNaN(minimumPrice) && !isNaN(maximumPrice) && minimumPrice != '' && maximumPrice != '') {
+
+            let filteredProducts = productsData.
+                filter(item => item.unitPrice >= minimumPrice && item.unitPrice <= maximumPrice);
+
+            loadData(filteredProducts);
+
+            minPriceInput.style.borderColor = '';
+            maxPriceInput.style.borderColor = '';
+
+        }
+        else{
+            alert('lütfen gerekli alanları doldurunuz!');
+            minPriceInput.style.borderColor ='tomato';
+            maxPriceInput.style.borderColor = 'tomato';
+        }
+    }
+
+    function searchByName(){
+        let searchName = searchNameInput.value.toLowerCase().trim();
+
+        let filteredProducts = productsData.filter(item => item.name.toLowerCase().includes(searchName));
+
+
+        loadData(filteredProducts);
+
 
     }
 
