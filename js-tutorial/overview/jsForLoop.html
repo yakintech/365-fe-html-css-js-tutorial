@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //For döngüsü bir kodun bir koşula bağlı olarak TEKRAR TEKRAR  çalışması prensibine bağlı çalışır.
+
+    //i değişkeni 0 dan başlar. her döngüde değişken bir ARTAR. Her döngüde koşula bakıp devam ediyor.
+
+
+    //1) 1 den 10 a kadar olan sayıları yazdır.
+    for (let i = 1; i < 10; i++) {
+        //console.log('i: ', i);
+    }
+
+    //2) 1 den 100 e kadar olan TEK SAYILARI yazdır
+    for (let i = 1; i < 100; i++) {
+
+        //i tek ise? ( % işareti mod olarak kullanılır)
+        if (i % 2 == 1) {
+            console.log('i: ', i);
+        }
+    }
+
+
+    //3) 1 den 100 e kadar olan SAYILARIN TOPLAMI ( 100 dahil )
+    let toplam = 0;
+    for(let i = 1; i <= 100; i++){
+        toplam = toplam + i;
+    }
+
+    console.log('toplam ', toplam);
+
+
+</script>
+
+</html>

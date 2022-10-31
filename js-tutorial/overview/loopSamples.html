@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <label>Number</label>
+        <input type="text" id="number" />
+    </div>
+    <div>
+        <button onclick="calcStar()">Calc Star</button>
+    </div>
+
+</body>
+<script>
+    //Butona bastığında inputa girilen değer kadar console a "*" yazsın. Örneğin 5 girdiyse 5 adet yıldız yanyana yazsın.
+    function calcStar() {
+
+        //öncelikle inputtan girilen sayıyı bir değişkene alıyorum. Bir input üzerinden bir değer alınacaksa o inputun value su alınır!
+        let data = document.getElementById('number').value;
+
+        if (data != "") {
+
+            let result = "";
+            //Bu döngü her döndüğünde result isimli değişkene bir * ekliyorum!
+            for (let i = 0; i < data; i++) {
+                result = result + "*";
+            }
+
+            console.log("Result ", result);
+
+        }
+    }
+
+ 
+
+
+
+</script>
+
+</html>
