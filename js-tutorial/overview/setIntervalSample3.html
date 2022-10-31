@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="numbers">
+
+    </ul>
+</body>
+<script>
+
+    setInterval(function () {
+
+        let liElement = document.createElement('li');
+        liElement.innerHTML = Math.floor(Math.random() * 1000);
+
+        document.getElementById('numbers').appendChild(liElement);
+
+    }, 500)
+
+</script>
+
+</html>
