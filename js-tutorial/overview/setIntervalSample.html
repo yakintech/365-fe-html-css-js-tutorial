@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn" onclick="clickMe()">Click Me</button>
+</body>
+<script>
+
+    function clickMe() {
+        alert('Hello! I am a BUTTON!')
+    }
+
+    setInterval(function(){
+
+        //Her yarım saniyede bir 0 - 1000 arasında rastgele 2 sayı tanımlıyorum!
+        let randomMarginLeft = Math.floor(Math.random() * 600);
+        let randomMarginTop = Math.floor(Math.random() * 600);
+
+        //Rastgele tanımlanan 2 sayıyı her yarım saniyede bir butonun style özelliğine ekliyorum.
+
+        document.getElementById('btn').style.marginLeft = randomMarginLeft + "px";
+        document.getElementById('btn').style.marginTop = randomMarginTop + "px";
+
+
+    }, 800);
+
+    
+
+</script>
+
+</html>
