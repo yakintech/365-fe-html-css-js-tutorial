@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 300px;
+            height: 100px;
+            margin-top: 60px;
+            border-style: solid;
+            border-color: tomato;
+
+            
+        }
+        button{
+            width: 120px;
+            height: 50px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <audio src="./horse.mp3"></audio>
+    <div>
+        <div>
+            <img id="at1" src="https://i.pinimg.com/originals/eb/ed/e5/ebede532f6f5cf644a3fcf79d14b046c.gif" />
+        </div>
+        <div>
+            <img id="at2" src="https://www.beano.com/wp-content/uploads/legacy/46682_ezgif.com-gif-to-mp4-10.gif?strip=all&quality=86&w=500"/>
+        </div>
+        <div>
+            <img id="at3" src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Muybridge_horse_pacing_animated.gif"/>
+        </div>
+    </div>
+    <div>
+        <button onclick="start()">Start</button>
+    </div>
+   
+</body>
+<script>
+
+    let at1 = document.getElementById('at1');
+    let at2 = document.getElementById('at2');
+    let at3 = document.getElementById('at3');
+
+
+    const start = () => {
+
+        //document.querySelector('audio').play();
+        let at1leftTotal = 0;
+        let at2leftTotal = 0;
+        let at3leftTotal = 0;
+
+        setInterval(() => {
+            let randomLeft1 = Math.floor(Math.random() * 100);
+            at1leftTotal = at1leftTotal + randomLeft1;
+
+            let randomLeft2 = Math.floor(Math.random() * 100);
+            at2leftTotal = at2leftTotal + randomLeft2;
+
+            let randomLeft3 = Math.floor(Math.random() * 100);
+            at3leftTotal = at3leftTotal + randomLeft3;
+
+   
+            at1.style.marginLeft = at1leftTotal + "px";
+            at2.style.marginLeft = at2leftTotal + "px";
+            at3.style.marginLeft = at3leftTotal + "px";
+
+        }, 200);
+
+    }
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius repellat eligendi harum cum, facilis, veritatis tempore maxime quia corporis praesentium facere, quaerat voluptatum modi doloribus optio. Voluptatem repellat aliquam incidunt!</p>
+
+    <div class="container">
+        <p>Ayça</p>
+    </div>
+    <button onclick="changeText()">Change Text</button>
+</body>
+<script>
+
+
+    function changeText(){
+
+        //verdiğim ID ye göre elementi yakaladım.
+        //document.getElementById('title').innerHTML = "Çağatay";
+        document.querySelector('p').innerHTML = "Çağatay";
+        //document.querySelector('.container p').innerHTML = "Çağatay";
+    }
+</script>
+</html>

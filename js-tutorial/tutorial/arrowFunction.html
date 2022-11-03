@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const hello = () => {
+        alert('Hello Wordl!')
+    }
+
+
+    //getNameNormal isimli function ile getName ve getName2 function aynı işlemi yapıyor!
+    function getNameNormal(){
+        return "Çağatay";
+    }
+
+    const getName = () => "Çağatay";
+
+    const getName2 = () => {
+        return "Çağatay";
+    }
+
+
+    //calcNormal ile calc function aynı işlemi yapmakta.
+    function calcNormal(price, tax){
+        return ((price * tax) * 1.08);
+    }
+    const calc = (price, tax) => ((price * tax) * 1.08);
+
+    
+
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <label>Email</label>
+        <input type="text" id="email">
+    </div>
+    <div>
+        <label>Password</label>
+        <input type="password" id="password">
+    </div>
+    <div>
+        <button onclick="login()">Login</button>
+    </div>
+</body>
+<script>
+    //Butona tıkladığında email cagatay@mail.com şifre 123 ise ekrana "Giriş Başarılı!" değilse "Email veya şifre hatalı" yazsın
+
+    function login(){
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+
+        if(email == 'cagatay@mail.com' && password == "123"){
+            alert('Giriş Başarılı!')
+        }
+        else{
+            alert('Email veya şifre hatalı')
+        }
+    }
+
+</script>
+
+</html>
