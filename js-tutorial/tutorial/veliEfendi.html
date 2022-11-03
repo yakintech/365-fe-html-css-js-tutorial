@@ -1,60 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        img{
+        body {
+            background-color: green;
+            margin: 0;
+        }
+
+        img {
             width: 300px;
             height: 100px;
             margin-top: 60px;
-            border-style: solid;
-            border-color: tomato;
 
-            
+
         }
-        button{
+
+        .game {
             width: 120px;
             height: 50px;
             margin-top: 30px;
         }
+
+        hr {
+            height: 650px;
+            width: 5px;
+            position: fixed;
+            left: 1300px;
+            top: 0px;
+            background-color: tomato;
+            border-color: tomato;
+        }
     </style>
 </head>
+
 <body>
     <audio src="./horse.mp3"></audio>
     <div>
         <div>
-            <img id="at1" src="https://i.pinimg.com/originals/eb/ed/e5/ebede532f6f5cf644a3fcf79d14b046c.gif" />
+            <img id="at1"
+                src="https://assets.horsenation.com/wp-content/uploads/2014/07/Horse-Nation-Famous-Last-Words-Craigslist.gif" />
         </div>
         <div>
-            <img id="at2" src="https://www.beano.com/wp-content/uploads/legacy/46682_ezgif.com-gif-to-mp4-10.gif?strip=all&quality=86&w=500"/>
+            <img id="at2"
+                src="https://www.beano.com/wp-content/uploads/legacy/46682_ezgif.com-gif-to-mp4-10.gif?strip=all&quality=86&w=500" />
         </div>
         <div>
-            <img id="at3" src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Muybridge_horse_pacing_animated.gif"/>
+            <img id="at3"
+                src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Muybridge_horse_pacing_animated.gif" />
         </div>
     </div>
     <div>
-        <button onclick="start()">Start</button>
+        <button class="game" onclick="start()">Start</button>
+        <button class="game" onclick="reset()">Reset</button>
     </div>
-   
+    <div>
+        <div style="margin-top: 10px">
+            <label>Bahis Tutarı:</label>
+            <input type="text" id="money" />
+            <select id="atlar">
+                <option value="at1">At-1</option>
+                <option value="at2">At-2</option>
+                <option value="at3">At-3</option>
+            </select>
+            <button id="kupon" onclick="kuponYap()">Kupon Yap</button>
+        </div>
+
+    </div>
+    <hr>
+
 </body>
 <script>
 
     let at1 = document.getElementById('at1');
     let at2 = document.getElementById('at2');
     let at3 = document.getElementById('at3');
+    let moneyInput = document.getElementById('money');
+    let kuponBtn = document.getElementById('kupon');
+
+    let atInterval;
+    let tutar;
+    let bahis;
+
+    const kuponYap = () => {
+
+        tutar = moneyInput.value;
+        console.log(tutar)
+        if (tutar != '' && !isNaN(tutar)) {
+            bahis = document.getElementById('atlar').value;
+            alert('Kupon yapıldı. Bol Şans!')
+        }
+        else{
+            alert('Düzgün değer gir bebe');
+        }
+
+
+    }
+
+    const reset = () => {
+        kuponBtn.removeAttribute('disabled');
+        clearInterval(atInterval);
+        at1.style.marginLeft = "0px";
+        at2.style.marginLeft = "0px";
+        at3.style.marginLeft = "0px";
+
+    }
 
 
     const start = () => {
+
+        kuponBtn.setAttribute('disabled', true);
 
         //document.querySelector('audio').play();
         let at1leftTotal = 0;
         let at2leftTotal = 0;
         let at3leftTotal = 0;
 
-        setInterval(() => {
+
+
+        atInterval = setInterval(() => {
             let randomLeft1 = Math.floor(Math.random() * 100);
             at1leftTotal = at1leftTotal + randomLeft1;
 
@@ -64,13 +132,64 @@
             let randomLeft3 = Math.floor(Math.random() * 100);
             at3leftTotal = at3leftTotal + randomLeft3;
 
-   
+
             at1.style.marginLeft = at1leftTotal + "px";
             at2.style.marginLeft = at2leftTotal + "px";
             at3.style.marginLeft = at3leftTotal + "px";
+
+            if (at1leftTotal > 1000) {
+                clearInterval(atInterval);
+                setTimeout(() => {
+                    alert('At 1 Kazandı!!');
+                    //Bahis yaptıysa
+                    if (tutar) {
+                    
+                        if (bahis == "at1") {
+                            alert("Kazandığın miktar: " + tutar * 3)
+                        }
+                        else {
+                            alert("Kasa kazandı!")
+                        }
+                        tutar = null;
+                    }
+                }, 1000);
+            }
+            else if (at2leftTotal > 1000) {
+                clearInterval(atInterval);
+                setTimeout(() => {
+                    alert('At 2 Kazandı!!');
+                    //Bahis yaptıysa
+                    if (tutar) {
+                        if (bahis == "at2") {
+                            alert("Kazandığın miktar: " + tutar * 3)
+                        }
+                        else {
+                            alert("Kasa kazandı!")
+                        }
+                        tutar = null;
+                    }
+                }, 1000);
+            }
+            else if (at3leftTotal > 1000) {
+                clearInterval(atInterval);
+                setTimeout(() => {
+                    alert('At 3 Kazandı!!');
+                    //Bahis yaptıysa
+                    if (tutar) {
+                        if (bahis == "at3") {
+                            alert("Kazandığın miktar: " + tutar * 3)
+                        }
+                        else {
+                            alert("Kasa kazandı!")
+                        }
+                        tutar = null;
+                    }
+                }, 1000);
+            }
 
         }, 200);
 
     }
 </script>
+
 </html>
