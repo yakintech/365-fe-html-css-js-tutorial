@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Upper Case</h1>
+    <div>
+        <label>Upper Case</label>
+        <input type="text" name="" id="upper">
+        <button onclick="upper()">Upper</button>
+        <label id="upperResult"></label>
+    </div>
+
+    <h1>Lower Case</h1>
+    <div>
+        <label>Lower Case</label>
+        <input type="text" name="" id="lower">
+        <button onclick="lower()">Lower</button>
+        <label id="lowerResult"></label>
+    </div>
+
+    <h1>Trim</h1>
+    <div>
+        <label>Trim</label>
+        <input type="text" id="trim"/>
+        <button onclick="trim()">Trim</button>
+        <input id="trimResult"/>
+    </div>
+
+    <h1>Split</h1>
+    <div>
+        <label>Split</label>
+        <input type="text" id="split" value="izmir, adana, trabzon, diyarbakır">
+        <button onclick="split()">Split</button>
+    </div>
+
+    <h1>Includes</h1>
+    <div>
+        <label>Includes Input</label>
+        <input type="text" id="includesInput" />
+
+        <label>Includes Control Word</label>
+        <input type="text" id="includesControl"/>
+
+        <button onclick="includeControl()">Control!</button>
+
+    </div>
+
+</body>
+<script>
+
+//https://www.w3schools.com/jsref/jsref_obj_string.asp
+//https://www.w3schools.com/js/js_string_methods.asp
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+
+
+let upperInput = document.getElementById('upper');
+let upperResult = document.getElementById('upperResult');
+
+let lowerInput = document.getElementById('lower');
+let lowerResult = document.getElementById('lowerResult');
+
+let trimInput = document.getElementById('trim')
+let trimResult = document.getElementById('trimResult');
+
+let splitInput = document.getElementById('split');
+
+let includeInput = document.getElementById('includesInput');
+let controlWord = document.getElementById('includesControl');
+
+
+
+const upper = () => {
+    let upperValue = upperInput.value;
+    upperResult.innerHTML = upperValue.toUpperCase();
+}
+
+const lower = () => {
+let lowerValue = lowerInput.value;
+lowerResult.innerHTML = lowerValue.toLowerCase();
+}
+
+const trim = () => {
+    let trimValue = trimInput.value;
+    trimResult.value = trimValue.trim();
+}
+
+//split metodu ile virgüllü ( veya başka bir karaktere sahip diziyi) bir stringi bir diziye atayabilirim. 
+const split = () => {
+    let cities = splitInput.value.split(',');
+    console.log('Cities', cities);
+}
+
+//includes metodu ile bir metnin veya harfin o kelimede olup olmadığını kontrol ediyorum! Kontrol ederken hem kontrol edeceğim metni hem de arama yapacağım metni küçültüyorum ki eşleşme yapabilsin.
+
+const includeControl = () => {
+    let includeValue = includeInput.value;
+    let result = includeValue.toLowerCase().includes(controlWord.value.toLowerCase());
+
+    alert(result)
+}
+
+
+let name = "Çağatay";
+
+//Çağatay daki a harflerini x ile değiştir.
+//Replace metodu sadece birinci harfi yakalar ve değiştirir.
+// let result1 = name.replace('a','x');
+let result1 = name.replaceAll('a','x');
+
+console.log('Result-1', result1);
+
+
+//+905437331470 numaralı telefondaki +90 kısmını çıkar. 5437331470
+let phone = "+905437331470";
+let phoneResult = phone.replaceAll("+90", "");
+
+console.log('Phone result', phoneResult);
+
+//isim ve soyisimdeki SADECE ilk harfleri büyült ve ekrana yazdır. Çağatay Yıldız
+let fullName = "çağatay yıldız";
+
+let names = fullName.split(' ');
+
+//substr metodu ile başlangıç değerini ve kaç karakter keseceğini söylersini. Eğer ikinci parametre boş bırakılırsa kalan tüm datayı alır
+
+let firstName = names[0][0].toUpperCase() + names[0].substr(1).toLowerCase();
+let lastName = names[1][0].toUpperCase() + names[1].substr(1).toLowerCase();
+
+let fullNameResult = firstName + " " + lastName;
+console.log('fullNameResult', fullNameResult);
+
+
+
+
+//Bir metindeki index numarasına göre karakteri indexOf metoduyla yakalayabiliriz.
+let indexOfWord = "Hello world, welcome to the universe.";
+let indexOfWordResult = indexOfWord.indexOf("welcome");
+
+console.log('indexOfWordResult', indexOfWordResult);
+
+
+
+
+</script>
+</html>
