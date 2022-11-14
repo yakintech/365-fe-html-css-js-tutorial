@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    let names = ["Çağatay", "Aykut", "Oya", "Zeliha", "Murat", "Mehmet", "Ayça", "Ezgi","Ömer", "Azer", "Anıl", "Can", "Selen", "Güneş", "Berkay", "Edin"]
+
+    //mevcut array uzunluğu
+    console.log('lenght ', names.length);
+
+
+    //Mevcut dizinin son elemanını alma. Dizi index numarası sıfırdan başladığı için bir azalttım.
+    console.log('last item: ', names[names.length - 1]);
+
+
+    //Mevcut array i string formatta yazdırmak için toString metodu kullanılır.
+    console.log('to String', names.toString());
+
+    //Dizinin son elemanını SİL veya ÇIKAR. pop metodu mevcut dizideki ( MEVCUT REFERANSI ) son elemanı siler ve result olarak silinen elemanı bana verir.
+    // let popped = names.pop();
+
+    // console.log('Silinen item: ', popped);
+    // console.log('Dizinin silinmiş hali: ', names);
+
+
+    //Splice metodu bir başlangıç index verip o indexe sahip elemanı silebilirim.
+
+    //aşağıdaki kod 1. index ve sonrasındaki tüm elementleri siler.
+    //names.splice(1);
+
+    //Dizinin son elemanını sil
+    // names.splice(names.length - 1);
+
+    //Dizinin üçüncü elemanını yani Oya'yı sil.
+    //names.splice(2, 1);
+
+
+    //sort metodu dizideki elemanları sıralar. (Türkçe karakter olduğunda işler değişiyor!! )
+    // let sortedNames = names.sort();
+    // console.log('sorted Names ', sortedNames);
+
+
+    // let sortedNames = names.sort((a, b) => {
+    //     a.localeCompare(b)
+    // });
+
+    // console.log('sorted Names ', sortedNames);
+
+    let numbers = [33, 6, 11, -2, 0, -55, 135, 44, 52, 390];
+    let sortedNumbers = numbers.sort();
+
+    console.log('sorted Numbers ', sortedNumbers);
+
+
+    //js FILTER metodu!!! filter metodu içerisine aldığı koşul ile filtreleme yapar ( TRUE OLANLARI FİLTRELE GİBİ!! )
+
+    //Dizi içerisinde a harfi geçen elementLERİ bana ver
+
+    // let filteredNames = names.filter(item => item.includes('a'))
+    // console.log('filteredNames', filteredNames);
+
+    // let filteredNames = names.filter(x => x.startsWith('A'));
+    // console.log('filteredNames', filteredNames);
+
+
+    let filteredNumbers = numbers.filter(item => item > 30)
+    console.log('filteredNumbers', filteredNumbers);
+
+
+
+
+</script>
+
+</html>
