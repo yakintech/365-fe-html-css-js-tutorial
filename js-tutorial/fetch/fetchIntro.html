@@ -16,6 +16,7 @@
 <script>
 
 
+//fetch metodunu kullanarak uzak sunucuya GET isteği atıp dataları çekiyorum!
     fetch("https://northwind.vercel.app/api/products")
         .then(res => res.json())
         .then(data => {
@@ -26,11 +27,10 @@
                 document.getElementById('products').appendChild(liElement);
             });
 
+            
+
         })
         .catch(err => console.log('error ', err))
-
-
-
 
 </script>
 

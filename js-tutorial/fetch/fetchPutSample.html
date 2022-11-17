@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Update Category</h1>
+
+    <div>
+        <label for="">Category Id</label>
+        <input type="text" id="id">
+    </div>
+
+    <div>
+        <label for="">Name</label>
+        <input type="text" id="name">
+    </div>
+
+    <div>
+        <label for="">Description</label>
+        <input type="text" id="description">
+    </div>
+    <div>
+        <button onclick="updateCategory()">Update</button>
+    </div>
+</body>
+<script>
+
+    let idInput = document.getElementById('id');
+    let nameInput = document.getElementById('name');
+    let descriptionInput = document.getElementById('description');
+
+    const updateCategory = () => {
+
+        let updateCategory = {
+            id : idInput.value,
+            name: nameInput.value,
+            description: descriptionInput.value
+        }
+
+
+        fetch("https://northwind.vercel.app/api/categories/" + idInput.value, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updateCategory)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log('DATA ', data);
+        })
+
+    }
+
+
+</script>
+</html>

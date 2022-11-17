@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <label for="">Product Id:</label>
+        <input type="text" id="productId" />
+        <button onclick="deleteProduct()">Delete</button>
+    </div>
+
+</body>
+<script>
+
+    let productIdInput = document.getElementById('productId');
+
+    const deleteProduct = () => {
+
+        let productId = productIdInput.value;
+
+        if(productId != "" && !isNaN(productId)){
+
+            fetch("https://northwind.vercel.app/api/products/" + productId,{
+                method:'DELETE'
+            })
+            .then(res => {
+                if(res.status == 200){
+                    alert("Silme işlemi başarılı!")
+                }
+            })
+
+
+        }
+        else{
+            alert("Lütfen düzgür bir productId giriniz!");
+        }
+
+
+    }
+</script>
+
+</html>

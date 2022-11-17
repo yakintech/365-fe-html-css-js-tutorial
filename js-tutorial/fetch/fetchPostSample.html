@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Add Category</h1>
+    <div>
+        <label for="">Name:</label>
+        <input type="text" id="name" />
+    </div>
+    <div>
+        <label for="">Description</label>
+        <input type="text" id="description" />
+    </div>
+    <div>
+        <button onclick="add()">Add</button>
+    </div>
+</body>
+<script>
+
+    let nameInput = document.getElementById('name');
+    let descriptionInput = document.getElementById('description');
+
+    const add = () => {
+
+        let newCategory = {
+            name: nameInput.value,
+            description: descriptionInput.value
+        }
+
+        fetch('https://northwind.vercel.app/api/categories', {
+            //method property ile nasıl bir http işlemi yapacağımı sunucuya söylüyorum
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            //Json stringfy ile javascript objesini jsona çeviriyorum!
+            body: JSON.stringify(newCategory)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log('Data', data);
+        })
+
+    }
+</script>
+
+</html>
