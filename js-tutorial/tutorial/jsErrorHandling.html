@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function calcData(){
+
+        try {
+            
+            const number = 22 * 33;     
+            number = 0;
+
+            alert("Çağatay!!");
+
+        } catch (error) {
+            console.log('Errorrrrr', error);
+        }
+
+    }
+
+    //calcData();
+
+
+    function taxCalc(price){
+        let result = 0;
+        if(price < 1000){
+            result = price * 1.18;
+        }
+        else{
+            throw "Vergi hesaplamasında bir hata meydana geldi!"
+        }
+
+        alert("Verginiz... " +result)
+    }
+
+    taxCalc(8000);
+</script>
+</html>
